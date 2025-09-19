@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://cfbmo7c430dx2"]
+
+[ext_resource type="Script" uid="uid://cqvdysm4cbmpa" path="res://assets/demo.gd" id="1_amuei"]
+[ext_resource type="PackedScene" uid="uid://1p5udtw1rdjp" path="res://assets/Model.tscn" id="1_s02n5"]
+[ext_resource type="Texture2D" uid="uid://c45bp3y7rqud0" path="res://assets/sky.jpg" id="3_457xp"]
+[ext_resource type="PackedScene" uid="uid://cyrog8gfe2gub" path="res://assets/Island.glb" id="3_e6to4"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_xfgwy"]
+panorama = ExtResource("3_457xp")
+
+[sub_resource type="Sky" id="Sky_457xp"]
+sky_material = SubResource("PanoramaSkyMaterial_xfgwy")
+
+[sub_resource type="Environment" id="Environment_e6to4"]
+background_mode = 2
+sky = SubResource("Sky_457xp")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_amuei")
+
+[node name="Model1" parent="." instance=ExtResource("1_s02n5")]
+
+[node name="Model2" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.03917, 0, 0)
+
+[node name="Model3" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.59857, 0, 0)
+
+[node name="Model4" parent="." instance=ExtResource("1_s02n5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6377, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.72599, 6.96129, 17.652)
+environment = SubResource("Environment_e6to4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 10, 0)
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="Island2" parent="Node3D" instance=ExtResource("3_e6to4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.764, -1.5, -44.693)
